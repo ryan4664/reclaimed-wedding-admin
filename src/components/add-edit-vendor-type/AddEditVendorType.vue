@@ -12,8 +12,17 @@
             <label>Description</label>
             <textarea type="text" v-model="vendorType.description" class="form-control"></textarea>
           </div>
-          <button class="btn btn-primary" type="button" v-on:click="save" v-if="!vendorTypeId">Create</button>
-          <button class="btn btn-primary" type="button" v-on:click="update" v-if="vendorTypeId">Update</button>
+          <div class="row">
+            <div class="col-6 text-left">
+              <router-link to="/vendors" tag="button" class="btn btn-default">Back</router-link>
+              <!-- <button class="btn btn-primary" type="button" v-on:click="save">Back</button> -->
+            </div>
+            <div class="col-6 text-right">
+              <button class="btn btn-danger" type="button" v-on:click="remove" v-if="vendorTypeId">Delete</button>
+              <button class="btn btn-success" type="button" v-on:click="save" v-if="!vendorTypeId">Save</button>
+              <button class="btn btn-success" type="button" v-on:click="update" v-if="vendorTypeId">Save</button>
+            </div>
+          </div>
         </form>
       </div>
     </div>
@@ -53,6 +62,13 @@ export default {
     update() {
       this.$http
         .put(`/api/vendortypes/${this.vendorTypeId}`, this.vendorType)
+        .then(({ body }) => {
+          this.$router.push({ name: "vendors" });
+        });
+    },
+    remove() {
+      this.$http
+        .delete(`/api/vendortypes/${this.vendorTypeId}`)
         .then(({ body }) => {
           this.$router.push({ name: "vendors" });
         });
