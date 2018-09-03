@@ -55,7 +55,7 @@ export default {
         .post("/api/vendortypes", this.vendorType)
         .then(({ status }) => {
           if (status === 200) {
-            this.$router.push({ name: "vendors" });
+            this.$router.push({ name: "vendor-management" });
           }
         });
     },
@@ -63,14 +63,14 @@ export default {
       this.$http
         .put(`/api/vendortypes/${this.vendorTypeId}`, this.vendorType)
         .then(({ body }) => {
-          this.$router.push({ name: "vendors" });
+          this.$router.push({ name: "vendor-management" });
         });
     },
     remove() {
       this.$http
         .delete(`/api/vendortypes/${this.vendorTypeId}`)
         .then(({ body }) => {
-          this.$router.push({ name: "vendors" });
+          this.$router.push({ name: "vendor-management" });
         });
     }
   }
