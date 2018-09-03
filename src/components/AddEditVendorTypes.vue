@@ -5,20 +5,29 @@
         <h3>Add/Edit Vendor Type</h3>
       </div>
     </div>
-    <add-edit-vendor-type></add-edit-vendor-type>
+    <add-edit-vendor-type v-bind:id="vendorTypeId"></add-edit-vendor-type>
   </div>
 
 </template>
 
 <script>
 import AddEditVendorType from "./add-edit-vendor-type/AddEditVendorType.vue";
+
 export default {
-  components : {
+  components: {
     AddEditVendorType
   },
+  props: ["id"],
   name: "addeditvendortypes",
   data() {
-    return {};
+    return {
+      vendorTypeId : this.$props.id
+    };
+  },
+  created: function() {
+    if(!this.vendorTypeId) {
+      this.vendorTypeId = null
+    }
   },
   methods: {
     find: function() {}
@@ -27,5 +36,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

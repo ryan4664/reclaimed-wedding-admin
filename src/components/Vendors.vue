@@ -8,7 +8,7 @@
             <h3 class="my-2">Vendors</h3>
           </div>
         </div>
-        <vendor-list></vendor-list>
+        <!-- <vendor-list></vendor-list> -->
       </div>
       <div class="col-6">
         <div class="row">

@@ -19,7 +19,8 @@ export default new Router({
   }, {
     path: '/vendors/types/add-edit',
     name: 'addeditvendortypes',
-    component: AddEditVendorTypes
+    component: AddEditVendorTypes,
+    props: true
   }, {
     path: '/ads/add-edit/:id',
     name: 'addeditad',

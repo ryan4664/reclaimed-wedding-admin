@@ -22,18 +22,19 @@
 
 <script>
 export default {
+  props: ["id"],
   data() {
     return {
+      vendorTypeId: this.$props.id,
       vendorType: {}
     };
   },
   created: function() {
-    if (this.$route.params.id) {
-      this.vendorTypeId = this.$route.params.id;
+    if (this.vendorTypeId) {
       this.$http
-        .get(`/api/vendors/types/${this.vendorTypeId}`)
-        .then(response => {
-          this.vendorType = response.body;
+        .get(`/api/vendortypes/${this.vendorTypeId}`)
+        .then(({ body }) => {
+          this.vendorType = body;
         });
     } else {
       this.vendorTypeId = null;
@@ -41,19 +42,24 @@ export default {
   },
   methods: {
     save() {
-      this.$http.post("/api/vendors/types", this.vendorType).then(response => {
-        console.log(response);
-      });
+      this.$http
+        .post("/api/vendortypes", this.vendorType)
+        .then(({ status }) => {
+          if (status === 200) {
+            this.$router.push({ name: "vendors" });
+          }
+        });
     },
     update() {
-      this.$http.put("/api/vendors/types", this.vendorType).then(response => {
-        this.$router.go('vendors ')
-      });
+      this.$http
+        .put(`/api/vendortypes/${this.vendorTypeId}`, this.vendorType)
+        .then(({ body }) => {
+          this.$router.push({ name: "vendors" });
+        });
     }
   }
 };
 </script>
 
 <style scoped>
-
 </style>

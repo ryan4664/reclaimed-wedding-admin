@@ -21,10 +21,16 @@
 
 <script>
 export default {
+  props: ["id"],
   data() {
     return {
       vendorType: {}
     };
+  },
+  created : function() {
+    this.$http.get(`/api/vendortypes/${this.$props.id}`).then(({ body }) => {
+      this.vendorType = body;
+    });
   },
   methods: {
     save() {
@@ -37,5 +43,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

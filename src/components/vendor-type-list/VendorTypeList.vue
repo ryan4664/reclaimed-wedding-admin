@@ -6,14 +6,12 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th>Id</th>
               <th>Type</th>
               <th>Description</th>
             </tr>
           </thead>
           <tbody>
               <tr v-for="vendorType in vendorTypes" v-bind:key="vendorType._id" v-on:click="edit(vendorType._id)">
-                <td>{{vendorType._id}}</td>
                 <td>{{vendorType.type}}</td>
                 <td>{{vendorType.description}}</td>
               </tr>  
@@ -33,7 +31,7 @@ export default {
   },
   components: {},
   created: function() {
-    this.$http.get("/api/vendors/types").then(response => {
+    this.$http.get("/api/vendortypes").then(response => {
       this.vendorTypes = response.body;
     });
   },
