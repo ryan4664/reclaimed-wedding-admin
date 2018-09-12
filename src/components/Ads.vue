@@ -3,7 +3,7 @@
   <div>
     <div class="row">
       <div class="col-12">
-        <h3>Vendor Management</h3>
+        <h3>Ad Management</h3>
         <hr>
       </div>
       <div class="col-6">
@@ -12,7 +12,7 @@
             <h3 class="my-2">Pending Vendors</h3>
           </div>
         </div>
-        <pending-vendor-list></pending-vendor-list>
+        <!-- <pending-vendor-list></pending-vendor-list> -->
       </div>
       <div class="col-6">
         <div class="row">
@@ -20,7 +20,7 @@
             <h3 class="my-2">Vendor Types</h3>
           </div>
         </div>
-        <vendor-type-list></vendor-type-list>
+        <!-- <vendor-type-list></vendor-type-list> -->
       </div>
     </div>
     <div class="row">
@@ -38,17 +38,17 @@
 </template>
 
 <script>
-import VendorList from "./vendor-list/VendorList.vue";
-import VendorTypeList from "./vendor-type-list/VendorTypeList.vue";
-import PendingVendorList from "./pending-vendor-list/PendingVendorList.vue";
+// import VendorList from "./vendor-list/VendorList.vue";
+// import VendorTypeList from "./vendor-type-list/VendorTypeList.vue";
+// import PendingVendorList from "./pending-vendor-list/PendingVendorList.vue";
 
 export default {
   components: {
-    VendorList,
-    VendorTypeList,
-    PendingVendorList
+    // VendorList,
+    // VendorTypeList,
+    // PendingVendorList
   },
-  name: "vendors",
+  name: "ads",
   data() {
     return {};
   },
@@ -59,4 +59,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './components/Home'
 import Vendors from './components/Vendors'
+import Ads from './components/Ads'
 import PendingVendor from './components/PendingVendor'
 import AddEditVendorTypes from './components/AddEditVendorTypes'
 import AddEditAd from './components/AddEditAd'
@@ -29,16 +30,16 @@ export default new Router({
     props: true
   }, {
     path: '/ad-management',
-    name: 'vendors-management',
-    component: Vendors
+    name: 'ad-management',
+    component: Ads
   }, {
     path: '/ad-management/types/add-edit',
-    name: 'addeditvendortypes',
+    name: 'addeditadtypes',
     component: AddEditVendorTypes,
     props: true
   }, , {
     path: '/ad-management/locations/add-edit',
-    name: 'addeditvendortypes',
+    name: 'addeditadlocations',
     component: AddEditVendorTypes,
     props: true
   }, {
