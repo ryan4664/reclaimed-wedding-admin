@@ -31,7 +31,7 @@ export default {
   },
   components: {},
   created: function() {
-    this.$http.get("/api/vendortypes").then(response => {
+    this.$http.get("./api/vendortypes").then(response => {
       this.vendorTypes = response.body;
     });
   },
