@@ -52,22 +52,27 @@ export default {
   },
   created: function() {
     this.$http
-      .get(`/api/vendors/applications/pending/${this.pendingVendorId}`)
+      .get(`/api/vendorApplications/pending/${this.pendingVendorId}`)
       .then(({ body }) => {
         this.pendingVendor = body;
       });
   },
   methods: {
     save() {
-      this.$http
-        .put(`/api/vendortypes/${this.pendingVendorId}`, this.vendorType)
-        .then(({ body }) => {
+      let newVendor = {
+        name: this.pendingVendor.vendorName,
+        description: this.pendingVendor.description,
+        type: this.pendingVendor.type
+      };
+      this.$http.post(`/api/vendors`, newVendor).then(({ body }) => {
+        this.$http.delete(`/api/vendorApplications/pending/${this.pendingVendor._id}`).then(({ body }) => {
           this.$router.push({ name: "vendor-management" });
         });
+      });
     },
     remove() {
       this.$http
-        .delete(`/api/vendors/applications/pending/${this.pendingVendorId}`)
+        .delete(`/api/vendorApplications/pending/${this.pendingVendorId}`)
         .then(({ body }) => {
           this.$router.push({ name: "vendor-management" });
         });

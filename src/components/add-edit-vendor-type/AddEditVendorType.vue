@@ -41,7 +41,7 @@ export default {
   created: function() {
     if (this.vendorTypeId) {
       this.$http
-        .get(`/api/vendortypes/${this.vendorTypeId}`)
+        .get(`/api/vendorTypes/${this.vendorTypeId}`)
         .then(({ body }) => {
           this.vendorType = body;
         });
@@ -52,7 +52,7 @@ export default {
   methods: {
     save() {
       this.$http
-        .post("/api/vendortypes", this.vendorType)
+        .post("/api/vendorTypes", this.vendorType)
         .then(({ status }) => {
           if (status === 200) {
             this.$router.push({ name: "vendor-management" });
@@ -61,14 +61,14 @@ export default {
     },
     update() {
       this.$http
-        .put(`/api/vendortypes/${this.vendorTypeId}`, this.vendorType)
+        .put(`/api/vendorTypes/${this.vendorTypeId}`, this.vendorType)
         .then(({ body }) => {
           this.$router.push({ name: "vendor-management" });
         });
     },
     remove() {
       this.$http
-        .delete(`/api/vendortypes/${this.vendorTypeId}`)
+        .delete(`/api/vendorTypes/${this.vendorTypeId}`)
         .then(({ body }) => {
           this.$router.push({ name: "vendor-management" });
         });

@@ -28,13 +28,13 @@ export default {
     };
   },
   created : function() {
-    this.$http.get(`/api/vendortypes/${this.$props.id}`).then(({ body }) => {
+    this.$http.get(`/api/vendorTypes/${this.$props.id}`).then(({ body }) => {
       this.vendorType = body;
     });
   },
   methods: {
     save() {
-      this.$http.post("/api/vendors/types", this.vendorType).then(response => {
+      this.$http.post("/api/vendorTypes", this.vendorType).then(response => {
           console.log(response)
       });
     }

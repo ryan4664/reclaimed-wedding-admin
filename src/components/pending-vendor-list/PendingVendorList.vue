@@ -33,7 +33,7 @@ export default {
   },
   components: {},
   created: function() {
-    this.$http.get("/api/vendors/applications/pending").then(({ body }) => {
+    this.$http.get("/api/vendorApplications/pending").then(({ body }) => {
       this.pendingVendors = body;
     });
   },
