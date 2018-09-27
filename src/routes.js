@@ -5,6 +5,7 @@ import Vendors from './components/Vendors'
 import Ads from './components/Ads'
 import PendingVendor from './components/PendingVendor'
 import AddEditVendorTypes from './components/AddEditVendorTypes'
+import AddEditAdLocations from './components/AddEditAdLocations'
 import AddEditAd from './components/AddEditAd'
 
 Vue.use(Router)
@@ -37,10 +38,10 @@ export default new Router({
     name: 'addeditadtypes',
     component: AddEditVendorTypes,
     props: true
-  }, , {
-    path: '/ad-management/locations/add-edit',
+  }, {
+    path: '/ad-management/ads/add-edit',
     name: 'addeditadlocations',
-    component: AddEditVendorTypes,
+    component: AddEditAdLocations,
     props: true
   }, {
     path: '/ads/add-edit/:id',
