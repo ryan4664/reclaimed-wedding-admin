@@ -5,6 +5,7 @@ import Vendors from './components/Vendors'
 import Ads from './components/Ads'
 import PendingVendor from './components/PendingVendor'
 import AddEditVendorTypes from './components/AddEditVendorTypes'
+import AddEditAdTypes from './components/AddEditAdTypes'
 import AddEditAdLocations from './components/AddEditAdLocations'
 import AddEditAd from './components/AddEditAd'
 
@@ -25,7 +26,7 @@ export default new Router({
     component: AddEditVendorTypes,
     props: true
   }, {
-    path: '/vendor-management/pending',
+    path: '/vendors/pending',
     name: 'pendingvendor',
     component: PendingVendor,
     props: true
@@ -34,14 +35,14 @@ export default new Router({
     name: 'ad-management',
     component: Ads
   }, {
-    path: '/ad-management/types/add-edit',
-    name: 'addeditadtypes',
-    component: AddEditVendorTypes,
-    props: true
-  }, {
-    path: '/ad-management/ads/add-edit',
+    path: '/ad-management/locations/add-edit',
     name: 'addeditadlocations',
     component: AddEditAdLocations,
+    props: true
+  }, {
+    path: '/ad-management/types/add-edit',
+    name: 'addeditadtypes',
+    component: AddEditAdTypes,
     props: true
   }, {
     path: '/ads/add-edit/:id',

@@ -12,7 +12,7 @@
             <h3 class="my-2">Types</h3>
           </div>
         </div>
-        <!-- <ad-type-list></ad-type-list> -->
+        <ad-type-list></ad-type-list>
       </div>
       <div class="col-6">
         <div class="row">
@@ -40,14 +40,12 @@
 </template>
 
 <script>
-import AdList from "./ad-list/AdList.vue";
-// import AdTypeList from "./ad-type-list/AdTypeList.vue";
+import AdTypeList from "./ad-type-list/AdTypeList.vue";
 import AdLocationList from "./ad-location-list/AdLocationList.vue";
 
 export default {
   components: {
-    // AdList
-    // AdTypeList,
+    AdTypeList,
     AdLocationList
   },
   name: "ads",

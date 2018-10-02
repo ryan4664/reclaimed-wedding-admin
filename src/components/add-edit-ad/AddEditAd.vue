@@ -35,7 +35,7 @@
                 <textarea class="form-control" v-model="message.text"></textarea>
               </div>
               <div class="col-12">
-                <button class="btn btn-primary" type="button"v-on:click="sendMessage">Send</button>
+                <button class="btn btn-primary" type="button" v-on:click="sendMessage">Send</button>
               </div>
             </div>
             <div class="row">

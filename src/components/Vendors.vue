@@ -53,7 +53,7 @@
 <script>
 import VendorList from "./vendor-list/VendorList.vue";
 import VendorTypeList from "./vendor-type-list/VendorTypeList.vue";
-import VendorLocationList from "./vendor-location-list/VendorLocationList.vue";
+// import VendorLocationList from "./vendor-location-list/VendorLocationList.vue";
 import PendingVendorList from "./pending-vendor-list/PendingVendorList.vue";
 
 export default {
@@ -61,7 +61,7 @@ export default {
     VendorList,
     VendorTypeList,
     PendingVendorList,
-    VendorLocationList
+    // VendorLocationList
   },
   name: "vendors",
   data() {
