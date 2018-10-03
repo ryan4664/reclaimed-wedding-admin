@@ -5,17 +5,16 @@
       <div class="col-12">
         <form>
           <div class="form-group">
-            <label>Type</label>
+            <label>Type  <span class="text-danger" v-if="errors.type">{{errors.type}}</span></label>
             <input type="text" v-model="vendorType.type" class="form-control" />
           </div>
           <div class="form-group">
-            <label>Description</label>
+            <label>Description  <span class="text-danger" v-if="errors.description">{{errors.description}}</span></label>
             <textarea type="text" v-model="vendorType.description" class="form-control"></textarea>
           </div>
           <div class="row">
             <div class="col-6 text-left">
-              <router-link to="/vendors" tag="button" class="btn btn-default">Back</router-link>
-              <!-- <button class="btn btn-primary" type="button" v-on:click="save">Back</button> -->
+              <router-link to="/vendor-management" tag="button" class="btn btn-default">Back</router-link>
             </div>
             <div class="col-6 text-right">
               <button class="btn btn-danger" type="button" v-on:click="remove" v-if="vendorTypeId">Delete</button>
@@ -35,7 +34,8 @@ export default {
   data() {
     return {
       vendorTypeId: this.$props.id,
-      vendorType: {}
+      vendorType: {},
+      errors: {}
     };
   },
   created: function() {
@@ -51,20 +51,34 @@ export default {
   },
   methods: {
     save() {
-      this.$http
-        .post("/api/vendorTypes", this.vendorType)
-        .then(({ status }) => {
+      this.$http.post("/api/vendorTypes", this.vendorType).then(
+        ({ status }) => {
           if (status === 200) {
             this.$router.push({ name: "vendor-management" });
           }
-        });
+        },
+        response => {
+          this.errors = response.body;
+          this.$toasted.show(
+            "There were some errors :( please review and try again!"
+          );
+        }
+      );
     },
     update() {
       this.$http
         .put(`/api/vendorTypes/${this.vendorTypeId}`, this.vendorType)
-        .then(({ body }) => {
-          this.$router.push({ name: "vendor-management" });
-        });
+        .then(
+          ({ body }) => {
+            this.$router.push({ name: "vendor-management" });
+          },
+          response => {
+            this.errors = response.body;
+            this.$toasted.show(
+              "There were some errors :( please review and try again!"
+            );
+          }
+        );
     },
     remove() {
       this.$http

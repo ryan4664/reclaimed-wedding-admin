@@ -28,7 +28,7 @@
             <h3 class="my-2">Locations</h3>
           </div>
         </div>
-        <vendor-location-list></vendor-location-list>
+        <!-- <vendor-location-list></vendor-location-list> -->
       </div>
     </div>
     <div class="row">
