@@ -5,7 +5,7 @@
       <div class="col-12">
         <form>
           <div class="form-group">
-            <label>Location</label>
+            <label>Location <span class="text-danger" v-if="errors.description">{{errors.description}}</span></label>
             <textarea type="text" v-model="adLocation.description" class="form-control"></textarea>
           </div>
           <div class="row">
@@ -30,13 +30,14 @@ export default {
   data() {
     return {
       adLocationId: this.$props.id,
-      adLocation: {}
+      adLocation: {},
+      errors : {}
     };
   },
   created: function() {
     if (this.adLocationId) {
       this.$http
-        .get(`/api/adLocation/${this.adLocationId}`)
+        .get(`/api/adLocations/${this.adLocationId}`)
         .then(({ body }) => {
           this.adLocation = body;
         });
@@ -52,13 +53,25 @@ export default {
           if (status === 200) {
             this.$router.push({ name: "ad-management" });
           }
-        });
+        }),
+        response => {
+          this.errors = response.body;
+          this.$toasted.show(
+            "There were some errors :( please review and try again!"
+          );
+        };
     },
     update() {
       this.$http
         .put(`/api/adLocations/${this.adLocationId}`, this.adLocation)
         .then(({ body }) => {
           this.$router.push({ name: "ad-management" });
+        },
+        response => {
+          this.errors = response.body;
+          this.$toasted.show(
+            "There were some errors :( please review and try again!"
+          );
         });
     },
     remove() {
