@@ -31,7 +31,7 @@ export default {
     return {
       adLocationId: this.$props.id,
       adLocation: {},
-      errors : {}
+      errors: {}
     };
   },
   created: function() {
@@ -47,32 +47,34 @@ export default {
   },
   methods: {
     save() {
-      this.$http
-        .post("/api/adLocations", this.adLocation)
-        .then(({ status }) => {
+      this.$http.post("/api/adLocations", this.adLocation).then(
+        ({ status }) => {
           if (status === 200) {
             this.$router.push({ name: "ad-management" });
           }
-        }),
-        response => {
-          this.errors = response.body;
-          this.$toasted.show(
-            "There were some errors :( please review and try again!"
-          );
-        };
-    },
-    update() {
-      this.$http
-        .put(`/api/adLocations/${this.adLocationId}`, this.adLocation)
-        .then(({ body }) => {
-          this.$router.push({ name: "ad-management" });
         },
         response => {
           this.errors = response.body;
           this.$toasted.show(
             "There were some errors :( please review and try again!"
           );
-        });
+        }
+      );
+    },
+    update() {
+      this.$http
+        .put(`/api/adLocations/${this.adLocationId}`, this.adLocation)
+        .then(
+          ({ body }) => {
+            this.$router.push({ name: "ad-management" });
+          },
+          response => {
+            this.errors = response.body;
+            this.$toasted.show(
+              "There were some errors :( please review and try again!"
+            );
+          }
+        );
     },
     remove() {
       this.$http
