@@ -9,7 +9,7 @@
             <input type="text" v-model="adType.type" class="form-control" />
           </div>
           <div class="form-group">
-            <label>description  <span class="text-danger" v-if="errors.type">{{errors.type}}</span></label>
+            <label>Description  <span class="text-danger" v-if="errors.description">{{errors.description}}</span></label>
             <textarea type="text" v-model="adType.description" class="form-control"></textarea>
           </div>
           <div class="row">
@@ -19,7 +19,7 @@
             <div class="col-6 text-right">
               <button class="btn btn-danger" type="button" v-on:click="remove" v-if="adTypeId">Delete</button>
               <button class="btn btn-success" type="button" v-on:click="save" v-if="!adTypeId">Save</button>
-              <button class="btn btn-success" type="button" v-on:click="update" v-if="adTypeId">Save</button>
+              <button class="btn btn-success" type="button" v-on:click="update" v-if="adTypeId">Update</button>
             </div>
           </div>
         </form>
@@ -64,17 +64,17 @@ export default {
       );
     },
     update() {
-      this.$http
-        .put(`/api/adTypes/${this.adTypeId}`, this.adType)
-        .then(({ body }) => {
+      this.$http.put(`/api/adTypes/${this.adTypeId}`, this.adType).then(
+        ({ body }) => {
           this.$router.push({ name: "ad-management" });
-        }),
+        },
         response => {
           this.errors = response.body;
           this.$toasted.show(
             "There were some errors :( please review and try again!"
           );
-        };
+        }
+      );
     },
     remove() {
       this.$http.delete(`/api/adTypes/${this.adTypeId}`).then(({ body }) => {

@@ -15,7 +15,7 @@
             <div class="col-6 text-right">
               <button class="btn btn-danger" type="button" v-on:click="remove" v-if="adLocationId">Delete</button>
               <button class="btn btn-success" type="button" v-on:click="save" v-if="!adLocationId">Save</button>
-              <button class="btn btn-success" type="button" v-on:click="update" v-if="adLocationId">Save</button>
+              <button class="btn btn-success" type="button" v-on:click="update" v-if="adLocationId">Update</button>
             </div>
           </div>
         </form>

@@ -15,9 +15,9 @@ const VueUploadComponent = require('vue-upload-component')
 
 const toastedOptions = {
   theme: 'bubble',
-  position: 'top-center',
-  duration: 5000,
-  fullWidth: 'true'
+  position: 'top-right',
+  duration: 2500,
+  singleton: true
 }
 
 Vue.config.productionTip = false

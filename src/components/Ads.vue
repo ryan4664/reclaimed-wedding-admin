@@ -25,7 +25,7 @@
     </div>
     <div class="row">
       <div class="col-6">
-        <router-link :to="{name: 'addeditvendortypes'}">
+        <router-link :to="{name: 'addeditadtypes'}">
           <button class="btn btn-block btn-primary">Create Type</button>
         </router-link>
       </div>

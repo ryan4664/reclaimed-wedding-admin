@@ -28,9 +28,6 @@ export default {
     if (!this.adTypeId) {
       this.adTypeId = null;
     }
-  },
-  methods: {
-    find: function() {}
   }
 };
 </script>
