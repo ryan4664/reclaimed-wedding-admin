@@ -10,6 +10,9 @@ import Icon from 'vue-awesome/components/Icon'
 import VueGallery from 'vue-gallery'
 import './assets/custom.css'
 import Toasted from 'vue-toasted'
+import {
+  ClientTable
+} from 'vue-tables-2'
 
 const VueUploadComponent = require('vue-upload-component')
 
@@ -27,6 +30,8 @@ Vue.use(VueGallery)
 Vue.use(Toasted, toastedOptions)
 Vue.component('icon', Icon)
 Vue.component('file-upload', VueUploadComponent)
+
+Vue.use(ClientTable, [{}], [false], ['bootstrap3'], ['default'])
 
 /* eslint-disable no-new */
 new Vue({
