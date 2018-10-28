@@ -62,7 +62,8 @@ export default {
       let newVendor = {
         name: this.pendingVendor.vendorName,
         description: this.pendingVendor.description,
-        type: this.pendingVendor.type
+        type: this.pendingVendor.type,
+        imageUrls : this.pendingVendor.imageUrls
       };
       this.$http.post(`/api/vendors`, newVendor).then(({ body }) => {
         this.$http.delete(`/api/vendorApplications/pending/${this.pendingVendor._id}`).then(({ body }) => {
